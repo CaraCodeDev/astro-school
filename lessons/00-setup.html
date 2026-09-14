@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 0: Set up your Mac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<style>
+/* ---- tokens (plain-CSS translation of design-system/tokens.css) ---- */
+:root {
+  --font-display: "Archivo", "Archivo Black", sans-serif;
+  --font-label: "Archivo", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  --color-blue: #0000de;
+  --color-black: #382e2e;
+  --color-orange: #fe6126;
+  --color-green: #d1ff5c;
+  --color-white: #ffffff;
+  --color-yellow: #ffde59;
+  --color-frost: #5778ff;
+  --color-ink: #1d2625;
+  --color-charcoal: #6a6362;
+  --color-grey: #9b9796;
+  --color-grey-subtle: #cdcbca;
+  --color-orange-subtle: #ffd8ca;
+  --color-blue-subtle: #cdcdff;
+  --color-green-subtle: #f4ffd8;
+  --color-yellow-subtle: #fff7d6;
+  --color-frost-subtle: #eef1ff;
+
+  --text-h1: clamp(2.5rem, 1.4rem + 4.69vw, 5.625rem);
+  --text-h2: clamp(1.875rem, 1.57rem + 1.31vw, 2.75rem);
+  --text-h2-sm: clamp(1.375rem, 1.24rem + 0.56vw, 1.75rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.56vw, 1.625rem);
+  --text-body-lg: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
+  --text-body: 0.9375rem;
+  --text-label: 0.875rem;
+
+  --spacing-inset: clamp(1.25rem, -0.95rem + 9.39vw, 7.5rem);
+  --container-content: 760px;
+  --radius-pill: 24px;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- type roles (from design-system/typography.css) ---- */
+.type-h1 { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h1); line-height: 1.05; letter-spacing: -0.3px; text-transform: uppercase; }
+.type-h2 { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h2); line-height: 1.05; letter-spacing: -0.4px; text-transform: uppercase; }
+.type-h2-sm { font-family: var(--font-display); font-weight: 700; font-size: var(--text-h2-sm); line-height: 1.25; letter-spacing: -0.3px; text-transform: uppercase; }
+.type-h3 { font-family: var(--font-body); font-weight: 600; font-size: var(--text-h3); line-height: 1.25; }
+.type-label { font-family: var(--font-label); font-weight: 500; font-size: var(--text-label); line-height: 1.4; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* ---- layout ---- */
+.page { padding: 0 var(--spacing-inset) 6rem; }
+.wrap { max-width: var(--container-content); margin: 0 auto; }
+
+header.hero {
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: clamp(3rem, 8vw, 6rem) var(--spacing-inset);
+}
+header.hero .wrap { max-width: 900px; }
+header.hero .type-label { color: var(--color-green); margin-bottom: 1rem; }
+header.hero h1 { margin: 0 0 1.25rem; }
+header.hero p { max-width: 40ch; margin: 0; font-size: var(--text-body-lg); opacity: .92; }
+
+section { margin-top: 4rem; }
+h2 { margin: 0 0 1rem; color: var(--color-blue); }
+h3 { margin: 2rem 0 .5rem; }
+p { margin: 0 0 1rem; }
+p, li { max-width: 68ch; }
+ol, ul { padding-left: 1.4rem; }
+li { margin-bottom: .5rem; }
+a { color: var(--color-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+strong { font-weight: 600; }
+
+hr.rule { border: 0; border-top: 2px solid var(--color-ink); margin: 3rem 0 0; }
+
+code {
+  font-family: ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, monospace;
+  font-size: .9em;
+  background: var(--color-frost-subtle);
+  padding: .1em .4em;
+  border-radius: 4px;
+}
+pre {
+  margin: 1rem 0 1.5rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--color-ink);
+  color: var(--color-white);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+
+.cmd { position: relative; }
+.cmd pre { white-space: pre-wrap; word-break: break-all; padding-right: 5.5rem; }
+.cmd button {
+  position: absolute; top: .6rem; right: .6rem;
+  font: 500 .75rem var(--font-label); letter-spacing: .5px; text-transform: uppercase;
+  background: var(--color-green); color: var(--color-ink);
+  border: 0; border-radius: var(--radius-pill); padding: .35rem .8rem; cursor: pointer;
+}
+
+.callout {
+  border-left: 4px solid var(--color-orange);
+  background: var(--color-orange-subtle);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.note { border-color: var(--color-frost); background: var(--color-frost-subtle); }
+.callout.good { border-color: #9bc40a; background: var(--color-green-subtle); }
+.callout p:last-child { margin-bottom: 0; }
+
+/* step cards */
+.step {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--color-grey-subtle);
+}
+.step:last-of-type { border-bottom: 1px solid var(--color-grey-subtle); }
+.step .num {
+  font-family: var(--font-display); font-weight: 900; font-size: 2.25rem; line-height: 1;
+  color: var(--color-orange);
+}
+.step h3 { margin: .1rem 0 .5rem; }
+.step .why { color: var(--color-charcoal); }
+.step .why strong { color: var(--color-ink); }
+
+table { border-collapse: collapse; width: 100%; margin: 1rem 0 1.5rem; font-size: var(--text-body); }
+th, td { text-align: left; padding: .7rem .75rem; border-bottom: 1px solid var(--color-grey-subtle); vertical-align: top; }
+th { font-family: var(--font-label); font-weight: 500; font-size: .8rem; letter-spacing: .5px; text-transform: uppercase; color: var(--color-charcoal); }
+td:first-child { white-space: nowrap; font-weight: 600; }
+.tablewrap { overflow-x: auto; }
+
+dl { margin: 0; }
+dt { font-weight: 600; margin-top: 1rem; }
+dd { margin: .2rem 0 0; color: var(--color-charcoal); max-width: 68ch; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { display: flex; gap: .75rem; align-items: flex-start; }
+.checklist li::before {
+  content: ""; flex: 0 0 auto; width: 1.1rem; height: 1.1rem; margin-top: .3rem;
+  border: 2px solid var(--color-ink); border-radius: 4px;
+}
+
+footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 2px solid var(--color-ink); color: var(--color-charcoal); font-size: var(--text-body); }
+
+@media (max-width: 480px) {
+  .step { grid-template-columns: 1fr; gap: .25rem; }
+  .step .num { font-size: 1.75rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="type-label">Astro School · Lesson 0</div>
+    <h1 class="type-h1">Set up your Mac</h1>
+    <p>One command turns a fresh Mac into a machine that can build and publish websites. This page explains what that command does and why, so nothing that happens on screen is a mystery.</p>
+  </div>
+</header>
+
+<main class="page"><div class="wrap">
+
+<section>
+  <h2 class="type-h2">What you'll have at the end</h2>
+  <ul class="checklist">
+    <li>A terminal app called Ghostty that looks good and tells you where you are.</li>
+    <li>A code editor called Zed.</li>
+    <li>The tools that run Astro and talk to GitHub, installed and logged in.</li>
+    <li>A GitHub account and a Cloudflare account, ready for lesson 1.</li>
+  </ul>
+  <p>Budget 20 to 30 minutes. Most of that is downloading, and there are only three moments where you need to do anything.</p>
+</section>
+
+<section>
+  <h2 class="type-h2">First, two accounts</h2>
+  <p>Make these now if you don't have them. Use the same email for both, it saves confusion later.</p>
+  <dl>
+    <dt><a href="https://github.com/signup">GitHub</a></dt>
+    <dd>Where your website's files live. Think of it as the master copy. Every change you make gets sent here, and the hosting reads from here. Free.</dd>
+    <dt><a href="https://dash.cloudflare.com/sign-up">Cloudflare</a></dt>
+    <dd>Where the website is actually served from. It watches your GitHub repo and rebuilds the site every time something changes. Also free for what we're doing.</dd>
+  </dl>
+  <div class="callout note">
+    <p>If you're joining an existing team account on either service, you'll get an invite instead. Still make a personal GitHub account, because the invite needs one to attach to.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="type-h2">The command</h2>
+  <p>Press <strong>Cmd + Space</strong>, type <strong>Terminal</strong>, press Enter. A plain white or black window opens with a blinking cursor. Paste this in and press Enter.</p>
+  <div class="cmd">
+    <pre><code id="the-cmd">curl -fsSL https://raw.githubusercontent.com/CaraCodeDev/astro-school/main/setup.sh | bash</code></pre>
+    <button onclick="navigator.clipboard.writeText(document.getElementById('the-cmd').textContent).then(()=>{this.textContent='Copied'})">Copy</button>
+  </div>
+  <h3 class="type-h3">What that line means</h3>
+  <p>It's two instructions joined by the vertical bar. The first half, <code>curl</code>, downloads a file from the internet. The address is a file called <code>setup.sh</code> that lives in a public GitHub repo. The second half, <code>bash</code>, runs whatever it was handed as a series of commands. So: download the script, run the script.</p>
+  <p>You can read the script before you run it. It's plain text, and every step in it is described below. Open it here: <a href="https://github.com/CaraCodeDev/astro-school/blob/main/setup.sh">setup.sh on GitHub</a>.</p>
+  <div class="callout">
+    <p><strong>A habit worth forming.</strong> Piping a download straight into bash is normal in this world, and it's also how people get tricked. Only do it when you know who wrote the script and can read it. This one is ours.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="type-h2">The three moments that need you</h2>
+  <ol>
+    <li><strong>A dialog asks to install command line tools.</strong> Click Install. It takes a few minutes. When it's done, paste the command again and press Enter. The script picks up where it left off.</li>
+    <li><strong>It asks for your Mac password.</strong> Type it and press Enter. Nothing appears as you type, not even dots. That's normal.</li>
+    <li><strong>It asks you to log in to GitHub.</strong> Use the arrow keys and Enter to choose <strong>GitHub.com</strong>, then <strong>HTTPS</strong>, then <strong>Yes</strong>, then <strong>Login with a web browser</strong>. It shows you a code, opens your browser, and you paste the code in.</li>
+  </ol>
+  <p>Everything else runs on its own. When you see <strong>Done</strong>, quit Terminal. You won't use it again.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <h2 class="type-h2">What the script does, step by step</h2>
+  <p>Six steps. Each one prints its number as it starts, so you can match what's on screen to what's here.</p>
+
+  <div class="step">
+    <div class="num">1</div>
+    <div>
+      <h3 class="type-h3">Apple command line tools</h3>
+      <p>Checks whether Apple's developer tools are installed. If not, it triggers the install dialog and stops, so you can click Install and run the command again.</p>
+      <p class="why"><strong>Why.</strong> This is the one thing everything else depends on. It includes <code>git</code>, the program that tracks changes to files, and the compilers Homebrew needs. It's not the full Xcode app, just the pieces that work in a terminal. About 2 GB.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <div>
+      <h3 class="type-h3">Homebrew</h3>
+      <p>Installs Homebrew if it isn't there. This is the step that asks for your password.</p>
+      <p class="why"><strong>Why.</strong> Homebrew is an app store for the terminal. Instead of hunting down installers from a dozen websites, you tell Homebrew what you want and it fetches, installs, and later updates it. Nearly every tool on this page arrives through it.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <div>
+      <h3 class="type-h3">Get the setup files</h3>
+      <p>Makes a folder at <code>~/repo</code> and copies the astro-school repo into it. The <code>~</code> means your home folder, so this is <code>Users/yourname/repo/astro-school</code>.</p>
+      <p class="why"><strong>Why.</strong> The script needs the list of tools and the config files, and those live in the same repo. This is also your first <code>git clone</code>, which is the thing you'll do in lesson 1 to get a website onto your machine. And <code>~/repo</code> becomes the folder where all your projects go, so you always know where to look.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">4</div>
+    <div>
+      <h3 class="type-h3">Install tools and apps</h3>
+      <p>Reads a file called <code>Brewfile</code>, which is a shopping list, and hands it to Homebrew. This is the slow step.</p>
+      <p class="why"><strong>Why each thing is on the list.</strong></p>
+      <div class="tablewrap">
+      <table>
+        <tr><th>Tool</th><th>What it's for</th></tr>
+        <tr><td>git</td><td>Tracks every change to every file in a project. Lets you see what changed, undo, and send changes to GitHub.</td></tr>
+        <tr><td>gh</td><td>GitHub's own command line app. Its main job here is logging you in, which means you never set up keys or tokens by hand.</td></tr>
+        <tr><td>node</td><td>Runs JavaScript outside a browser. Astro is written in JavaScript, so this is what runs it.</td></tr>
+        <tr><td>pnpm</td><td>Installs a project's dependencies, the libraries it's built on. You'll type <code>pnpm install</code> once per project and <code>pnpm dev</code> every time you work on it.</td></tr>
+        <tr><td>starship</td><td>The prompt. The coloured bar that shows which folder you're in and which git branch, and warns you when there are unsaved changes.</td></tr>
+        <tr><td>zsh-autosuggestions</td><td>Grey ghost text that guesses the command from your history. Press Tab to accept it.</td></tr>
+        <tr><td>zsh-syntax-highlighting</td><td>Colours what you type. Green means it's a real command, red means a typo. You find out before pressing Enter.</td></tr>
+        <tr><td>eza</td><td>A nicer <code>ls</code>, the command that lists files. Adds icons and colour.</td></tr>
+        <tr><td>zoxide</td><td>Makes <code>cd</code>, the command for moving between folders, remember where you've been. <code>cd astro</code> jumps to the astro-school folder from anywhere.</td></tr>
+        <tr><td>micro</td><td>A text editor that runs inside the terminal and behaves like a normal app. Cmd-style shortcuts, a menu, no secret modes. Some tools open an editor on you, and this makes sure it's a friendly one.</td></tr>
+        <tr><td>Ghostty</td><td>The terminal app you'll actually use. Faster and better looking than the built-in one.</td></tr>
+        <tr><td>Zed</td><td>The code editor. Where you open a project to read files and make small edits.</td></tr>
+        <tr><td>JetBrains Mono Nerd Font</td><td>A monospace font with icons baked in. The prompt needs it for the arrows and symbols. Without it you'd see boxes.</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">5</div>
+    <div>
+      <h3 class="type-h3">Terminal config</h3>
+      <p>Copies three small text files into place, then asks for your name and email if git doesn't know them yet.</p>
+      <p class="why"><strong>Why.</strong> Terminal apps are configured by text files in your home folder, usually starting with a dot so they're hidden. People call them dotfiles. The three here are:</p>
+      <dl>
+        <dt><code>~/.zshrc</code></dt>
+        <dd>Runs every time a terminal window opens. Turns on the suggestions and highlighting, sets up the nicer <code>ls</code> and <code>cd</code>, and starts the prompt.</dd>
+        <dt><code>~/.config/starship.toml</code></dt>
+        <dd>What the prompt shows and what colours it uses.</dd>
+        <dt><code>~/.config/ghostty/config</code></dt>
+        <dd>Font, theme, and window look for Ghostty.</dd>
+      </dl>
+      <p class="why">If any of these already existed, the old one is saved with <code>.backup</code> and a date on the end. Nothing is lost.</p>
+      <p class="why"><strong>The name and email.</strong> Git stamps every change with who made it. The email should match your GitHub account so GitHub can connect the two.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">6</div>
+    <div>
+      <h3 class="type-h3">Log in to GitHub</h3>
+      <p>Runs <code>gh auth login</code>, which walks you through the browser login described above.</p>
+      <p class="why"><strong>Why.</strong> Sending changes to GitHub needs proof it's you. The old way was generating keys and pasting them into settings pages. <code>gh</code> does the browser dance once and remembers, so from then on <code>git push</code> just works.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="type-h2">After it says Done</h2>
+  <p>Quit Terminal. Open <strong>Ghostty</strong> from Applications. You should see a coloured bar with a folder name in it and a <code>❯</code> underneath. That's the prompt. It's waiting for you.</p>
+  <p>Type <code>ls</code> and press Enter. You'll get a list of the folders in your home directory, with icons. Type <code>cd repo</code> and press Enter, and watch the folder name in the prompt change. That's all a terminal is: you're standing in a folder, and you type what you want done.</p>
+  <div class="callout good">
+    <p><strong>You're done.</strong> Bring this to lesson 1 and we'll put a website on the internet from that window.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="type-h2">If something goes wrong</h2>
+  <p>Something red appeared, or it stopped without saying Done. Don't retype anything and don't try to fix it. Select the last 20 or so lines in the terminal, copy them, and send them over. The words in the error are the whole point, so copy, don't describe.</p>
+  <p>Running the command a second time is always safe. It checks what's already done and skips it.</p>
+</section>
+
+<section>
+  <h2 class="type-h2">Words you'll hear</h2>
+  <dl>
+    <dt>Terminal</dt><dd>A window where you type commands instead of clicking. Ghostty is one. So is the built-in Terminal app.</dd>
+    <dt>Shell</dt><dd>The program inside the terminal that reads what you type. On a Mac it's called zsh. The terminal is the window, the shell is what's running in it.</dd>
+    <dt>Prompt</dt><dd>The bit the shell prints to say it's ready. Ours shows the folder and git branch.</dd>
+    <dt>Repo</dt><dd>Short for repository. A folder that git is tracking. A website is a repo. This setup is a repo.</dd>
+    <dt>Clone</dt><dd>Copying a repo from GitHub onto your machine.</dd>
+    <dt>Push</dt><dd>Sending your changes from your machine up to GitHub.</dd>
+    <dt>Dotfile</dt><dd>A hidden config file in your home folder, named with a leading dot.</dd>
+    <dt><code>~</code></dt><dd>Your home folder. <code>~/repo</code> is the repo folder inside it.</dd>
+  </dl>
+</section>
+
+<footer>
+  Astro School · Lesson 0 · Source and script at <a href="https://github.com/CaraCodeDev/astro-school">github.com/CaraCodeDev/astro-school</a>
+</footer>
+
+</div></main>
+</body>
+</html>

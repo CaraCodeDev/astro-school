@@ -1,0 +1,94 @@
+/* ---------- Fonts (variable, self-hosted) ---------- */
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/Archivo-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/PlusJakartaSans-Italic-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- Theme tokens ----------
+   Source: _reference/figma/tokens.json (style tile + Figma styles node).
+   Fluid type ramp and spacing scale are OURS, not the designer's; Figma
+   only has a single 1440 desktop size. Mobile floor is at 375px. */
+@theme {
+  --font-display: "Archivo", "Archivo Black", sans-serif;
+  --font-label: "Archivo", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  /* Brand */
+  --color-blue: #0000de;        /* Yeeya Blue */
+  --color-black: #382e2e;       /* Matt Black */
+  --color-orange: #fe6126;      /* Antony Orange */
+  --color-green: #d1ff5c;       /* Abby Green */
+  --color-white: #ffffff;       /* Mike White */
+  --color-yellow: #ffde59;      /* Wymellow */
+  --color-frost: #5778ff;       /* Frosty Blue */
+  --color-ink: #1d2625;         /* text colour used throughout Figma; decision pending vs Matt Black */
+
+  /* Neutrals */
+  --color-charcoal: #6a6362;
+  --color-grey: #9b9796;
+  --color-grey-subtle: #cdcbca;
+
+  /* Tints */
+  --color-orange-light: #ff8658;
+  --color-orange-lighter: #ffaf92;
+  --color-orange-subtle: #ffd8ca;
+  --color-blue-light: #4e4ef6;
+  --color-blue-lighter: #8989ff;
+  --color-blue-subtle: #cdcdff;
+  --color-green-light: #dfff91;
+  --color-green-lighter: #eaffb7;
+  --color-green-subtle: #f4ffd8;
+  --color-yellow-light: #ffe783;
+  --color-yellow-lighter: #ffefac;
+  --color-yellow-subtle: #fff7d6;
+  --color-frost-light: #8199ff;
+  --color-frost-lighter: #bcc9ff;
+  --color-frost-subtle: #eef1ff;
+
+  /* Fluid type: clamp(mobile @375, slope, desktop @1440) */
+  --text-display: clamp(3rem, 1.41rem + 6.76vw, 7.5rem);        /* 48 -> 120 */
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.4px;
+  --text-h1: clamp(2.5rem, 1.4rem + 4.69vw, 5.625rem);           /* 40 -> 90 */
+  --text-h1--line-height: 1.2;
+  --text-h1--letter-spacing: -0.3px;
+  --text-h2: clamp(1.875rem, 1.57rem + 1.31vw, 2.75rem);         /* 30 -> 44 */
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.4px;
+  --text-h2-sm: clamp(1.375rem, 1.24rem + 0.56vw, 1.75rem);      /* 22 -> 28 */
+  --text-h2-sm--line-height: 1.25;
+  --text-h2-sm--letter-spacing: -0.3px;
+  --text-h3: clamp(1.25rem, 1.12rem + 0.56vw, 1.625rem);         /* 20 -> 26 */
+  --text-h3--line-height: 1.25;
+  --text-h3-sm: clamp(1.125rem, 1rem + 0.56vw, 1.5rem);          /* 18 -> 24 */
+  --text-h3-sm--line-height: 1.25;
+  --text-body-lg: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);       /* 16 -> 18 */
+  --text-body-lg--line-height: 1.5;
+  --text-body: 0.875rem;                                          /* 14 */
+  --text-body--line-height: 1.6;
+  --text-label: 0.875rem;                                         /* 14 */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.5px;
+
+  /* Layout */
+  --spacing-inset: clamp(1.25rem, -0.95rem + 9.39vw, 7.5rem);    /* 20 -> 120 page inset */
+  --container-content: 1200px;
+  --radius-pill: 24px;
+}

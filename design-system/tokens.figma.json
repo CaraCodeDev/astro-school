@@ -1,0 +1,91 @@
+{
+  "$comment": "Extracted from Figma 'Styles' page (node 81:2) of A&M Website Rebrand V2, 2026-09-10. Flat, Tailwind 4 @theme-friendly. Values marked 'inferred' are not in the file. Type sizes use the rendered specimen value where it disagrees with the designer's label; see styles.md.",
+  "colors": {
+    "matt-black": "#382E2E",
+    "charcoal": "#6A6362",
+    "grey": "#9B9796",
+    "subtle-grey": "#CDCBCA",
+    "mike-white": "#FFFFFF",
+    "ink": "#1D2625",
+    "antony-orange": "#FE6126",
+    "light-orange": "#FF8658",
+    "lighter-orange": "#FFAF92",
+    "subtle-orange": "#FFD8CA",
+    "yeeya-blue": "#0000DE",
+    "light-blue": "#4E4EF6",
+    "lighter-blue": "#8989FF",
+    "subtle-blue": "#CDCDFF",
+    "abbey-green": "#D1FF5C",
+    "light-green": "#DFFF91",
+    "lighter-green": "#EAFFB7",
+    "subtle-green": "#F4FFD8",
+    "wymellow": "#FFDE59",
+    "light-yellow": "#FFE783",
+    "lighter-yellow": "#FFEFAC",
+    "subtle-yellow": "#FFF7D6",
+    "frosty-blue": "#5778FF",
+    "light-frost": "#8199FF",
+    "lighter-frost": "#BCC9FF",
+    "subtle-frost": "#EEF1FF"
+  },
+  "colorsNote": "'ink' (#1D2625) is not a palette swatch; it is the text colour used on every type specimen and most button labels. Kept separate so the decision (ink vs matt-black) can be made in one place.",
+  "fontFamily": {
+    "display": ["ANM Archivo", "Archivo Black", "Archivo", "sans-serif"],
+    "label": ["Archivo", "sans-serif"],
+    "body": ["Plus Jakarta Sans", "sans-serif"]
+  },
+  "fontFamilyNote": "ANM Archivo is a custom family name in the file (Black 900 and Bold 700). Archivo is used with font-variation-settings 'wdth' 100.",
+  "fontWeight": {
+    "display-black": 900,
+    "display-bold": 700,
+    "title-semibold": 600,
+    "title-medium": 500,
+    "body-regular": 400,
+    "label-regular": 400,
+    "label-medium": 500
+  },
+  "fontSize": {
+    "h1-display": { "size": "120px", "lineHeight": "1.05", "letterSpacing": "-0.4px", "family": "display", "weight": 900, "transform": "uppercase" },
+    "h1-page": { "size": "90px", "lineHeight": "1.25", "letterSpacing": "-0.3px", "family": "display", "weight": 900, "transform": "uppercase" },
+    "h2-lg": { "size": "44px", "lineHeight": "1.05", "letterSpacing": "-0.4px", "family": "display", "weight": 900, "transform": "uppercase" },
+    "h2-sm": { "size": "28px", "lineHeight": "1.25", "letterSpacing": "-0.3px", "family": "display", "weight": 700, "transform": "uppercase" },
+    "h3-lg": { "size": "26px", "lineHeight": "1.25", "letterSpacing": "0", "family": "body", "weight": 600, "labelSaid": "28px" },
+    "h3-sm": { "size": "24px", "lineHeight": "1.25", "letterSpacing": "0", "family": "body", "weight": 500, "labelSaid": "26px" },
+    "body-lg": { "size": "18px", "lineHeight": "1.5", "letterSpacing": "0", "family": "body", "weight": 400, "labelSaid": "20px" },
+    "body": { "size": "14px", "lineHeight": "1.6", "letterSpacing": "0", "family": "body", "weight": 400 },
+    "label-nav": { "size": "14px", "lineHeight": "1.4", "letterSpacing": "0.5px", "family": "label", "weight": 400, "transform": "uppercase", "labelSaid": "Medium (500); nav pills render Medium, specimen renders Regular" },
+    "label-button": { "size": "14px", "lineHeight": "1.42", "letterSpacing": "0", "family": "label", "weight": 400, "transform": "uppercase" }
+  },
+  "spacing": {
+    "button-py": "6px",
+    "button-px": "14px",
+    "button-ghost-py": "3px",
+    "button-ghost-px": "12px",
+    "button-gap": "4px",
+    "nav-py": "24px",
+    "nav-px": "120px",
+    "nav-gap": "18px",
+    "nav-logo-w": "122px",
+    "nav-logo-h": "60px",
+    "nav-icon": "40px",
+    "content-max": "1200px"
+  },
+  "spacingNote": "No spacing scale exists in the file. content-max (1200px) is inferred from 1440 minus 2 x 120 nav inset.",
+  "radius": {
+    "pill": "24px"
+  },
+  "borderWidth": {
+    "button-outline": "2px",
+    "nav-icon-stroke": "2.36px"
+  },
+  "breakpoints": {
+    "desktop": "1440px"
+  },
+  "breakpointsNote": "Only one frame width appears in the file. No tablet or mobile breakpoints are defined.",
+  "shadows": {},
+  "figmaTextStyles": {
+    "H2": "ANMArchivo Bold 28 / 1.25 / -0.3px",
+    "NAV": "Archivo Regular 14 / 1.4 / +0.5px"
+  },
+  "figmaVariables": {}
+}
