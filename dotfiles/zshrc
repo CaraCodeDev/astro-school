@@ -1,0 +1,51 @@
+# ~/.zshrc  --  installed by astro-school setup
+# Lines starting with # are comments. Everything else runs when a terminal opens.
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# History: remember 5000 commands, share across windows, skip duplicates
+HISTFILE=$HOME/.zhistory
+SAVEHIST=5000
+HISTSIZE=5000
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_expire_dups_first
+
+# Up/down arrow searches history for what you've typed so far
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+# Ghost-text suggestions from history. Tab accepts.
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^[[Z' autosuggest-accept
+
+# Colour commands as you type. Green is a real command, red is a typo.
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# Nicer ls
+alias ls="eza --icons=always"
+alias ll="eza --icons=always -l"
+
+# micro instead of nano/vim when something wants an editor (git commit, etc)
+export EDITOR=micro
+alias nano='micro'
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Hide Node's experimental-feature warnings
+export NODE_OPTIONS="${NODE_OPTIONS:+$NODE_OPTIONS }--disable-warning=ExperimentalWarning"
+
+# Prompt
+eval "$(starship init zsh)"
+
+# Smarter cd. `z proj` jumps to a folder you've visited before. Must be last.
+eval "$(zoxide init zsh --cmd cd)"

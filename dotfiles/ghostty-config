@@ -1,0 +1,21 @@
+# ~/.config/ghostty/config  --  installed by astro-school setup
+
+font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-size = 13
+font-thicken = true
+adjust-cell-height = 10%
+
+theme = Gruvbox Dark
+palette = 1=#d65d5d
+palette = 9=#e78a8a
+
+background-opacity = 0.90
+background-blur = true
+cursor-style = block
+
+window-padding-balance = true
+macos-titlebar-style = transparent
+macos-icon = holographic
+
+# Shift+Enter sends a newline. Claude Code uses this for multi-line prompts.
+keybind = shift+enter=text:\x1b\r

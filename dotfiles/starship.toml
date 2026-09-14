@@ -1,0 +1,47 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Shows: folder > git branch + status
+# Dirty marker (!) means you have changes you haven't committed yet.
+
+format = """
+[](color_yellow)\
+$directory\
+[](fg:color_yellow bg:color_aqua)\
+$git_branch\
+$git_status\
+[ ](fg:color_aqua)\
+$line_break$character"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[directory]
+style = "fg:color_fg0 bg:color_yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+
+[git_status]
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color_green)'
+error_symbol = '[❯](bold fg:color_red)'
