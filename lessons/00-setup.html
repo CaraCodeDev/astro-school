@@ -289,6 +289,9 @@ footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 2px solid var(--colo
         <tr><td>JetBrains Mono Nerd Font</td><td>A monospace font with icons baked in. The prompt needs it for the arrows and symbols. Without it you'd see boxes.</td></tr>
       </table>
       </div>
+      <div class="callout note">
+        <p><strong>npm or pnpm?</strong> You'll see both names online. They do the same job, installing the libraries a project needs. npm comes with node and is the one most tutorials use. pnpm is a faster replacement that stores each library once on your disk instead of once per project, and it's what our projects use. The rule: if a project has a file called <code>pnpm-lock.yaml</code>, use pnpm. If it has <code>package-lock.json</code>, use npm. Every project we touch together will be the first kind, so for now just type pnpm and forget npm exists.</p>
+      </div>
     </div>
   </div>
 
